@@ -6,7 +6,8 @@ from .models import TableA, TableB
 from django.template import loader
 
 def index(request):
-    return HttpResponse("Главная страница форм")
+        tmp = loader.get_template("forms/index.html")
+        return HttpResponse(tmp.render({}, request))
 
 def printB(request):
     data = TableB.objects.all()
