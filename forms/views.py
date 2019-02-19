@@ -16,6 +16,7 @@ def printB(request):
 
 def copyTableAtoB(request):
     data = TableA.objects.all()
+    TableB.objects.all().delete()
     if (data):
         for l in data:
             hasher = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(12)])
@@ -24,3 +25,7 @@ def copyTableAtoB(request):
         return HttpResponse("Копирование выполнено успешно")
     else:
         return HttpResponse("Таблица А пуста. Нечего копировать")
+
+def copyButton(request):
+    tmp = loader.get_template("forms/copyBut.html")
+    return HttpResponse(tmp.render({}, request))

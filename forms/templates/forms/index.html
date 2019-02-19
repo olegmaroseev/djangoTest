@@ -2,7 +2,6 @@
 
 <table border="1">
 <tr>
-    <th>ID</th>
     <th>Имя</th>
     <th>Фамилия</th>
     <th>Ключ</th>
@@ -10,8 +9,7 @@
 
 {% if data %}
     {% for i in data %}
-        <tr><td>{{ i.id }}</td>
-        <td>{{ i.bPersonName }}</td>
+        <tr><td>{{ i.bPersonName }}</td>
         <td>{{ i.bPersonSurname }}</td>
         <td>{{ i.generatedPassWord }}</td> </tr>
     {% endfor %}
