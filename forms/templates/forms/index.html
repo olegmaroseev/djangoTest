@@ -5,16 +5,17 @@
     <th>ID</th>
     <th>Имя</th>
     <th>Фамилия</th>
+    <th>Ключ</th>
 </tr>
 
 {% if data %}
-    <tr>
     {% for i in data %}
-        <td>{{ i.id }}</td>
-        <td>{{ i.aPersonName }}</td>
-        <td>{{ i.aPersonSurname }}</td>
+        <tr><td>{{ i.id }}</td>
+        <td>{{ i.bPersonName }}</td>
+        <td>{{ i.bPersonSurname }}</td>
+        <td>{{ i.generatedPassWord }}</td> </tr>
     {% endfor %}
-    </tr>
+
 {% else %}
     <p>No data. Sorry. </p>
 {% endif %}
