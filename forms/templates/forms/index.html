@@ -1,0 +1,22 @@
+<h1>Ниже представлены данные из таблицы B</h1>
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+</tr>
+
+{% if data %}
+    <tr>
+    {% for i in data %}
+        <td>{{ i.id }}</td>
+        <td>{{ i.aPersonName }}</td>
+        <td>{{ i.aPersonSurname }}</td>
+    {% endfor %}
+    </tr>
+{% else %}
+    <p>No data. Sorry. </p>
+{% endif %}
+
+</table>
