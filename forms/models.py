@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 
 class TableA(models.Model):
@@ -16,3 +17,7 @@ class TableB(models.Model):
 
     def __str__(self):
         return self.aPersonName + " " + self.bPersonSurname
+
+class AForm(forms.Form):
+    name = forms.CharField(max_length=200)
+    surname = forms.CharField(max_length=200)

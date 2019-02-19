@@ -1,0 +1,8 @@
+<form action="/forms/processFormA" method="post">
+  {% csrf_token %}
+  <input type="text" name= "name" value="Имя">
+  <br> <br>
+  <input type="text" name="surname" value="Фамилия">
+  <br> <br>
+  <input type="submit" value="Отправить">
+</form>

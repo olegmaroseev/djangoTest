@@ -5,9 +5,12 @@ import random, string
 from .models import TableA, TableB
 from django.template import loader
 
+def index(request):
+    return HttpResponse("Главная страница форм")
+
 def printB(request):
     data = TableB.objects.all()
-    tmp = loader.get_template("forms/index.html")
+    tmp = loader.get_template("forms/tableB.html")
     context = {
         'data': data,
     }
@@ -29,3 +32,12 @@ def copyTableAtoB(request):
 def copyButton(request):
     tmp = loader.get_template("forms/copyBut.html")
     return HttpResponse(tmp.render({}, request))
+
+def addA(request):
+    tmp = loader.get_template("forms/formA.html")
+    return HttpResponse(tmp.render({}, request))
+
+def processFormA(request):
+    newLine = TableA(aPersonName = request.POST['name'], aPersonSurname = request.POST['surname'])
+    newLine.save()
+    return HttpResponse("OK")
