@@ -21,12 +21,15 @@ def printB(request):
 def copyTableAtoB(request):
     data = TableA.objects.all()
     TableB.objects.all().delete()
+    res = ""
     if (data):
         for l in data:
+            res += "Копируем строку " + str(l) + "<br>"
             hasher = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(12)])
             newLine = TableB(bPersonName = l.aPersonName, bPersonSurname = l.aPersonSurname, generatedPassWord = hasher  )
             newLine.save()
-        return HttpResponse("Копирование выполнено успешно")
+            res += "OK <br>"
+        return HttpResponse(res + "<br> Копирование выполнено успешно")
     else:
         return HttpResponse("Таблица А пуста. Нечего копировать")
 

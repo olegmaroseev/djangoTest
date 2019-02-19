@@ -16,7 +16,7 @@ class TableB(models.Model):
     generatedPassWord = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.aPersonName + " " + self.bPersonSurname
+        return self.aPersonName + " " + self.bPersonSurname + " " + self.generatedPassWord
 
 class AForm(forms.Form):
     name = forms.CharField(max_length=200)
